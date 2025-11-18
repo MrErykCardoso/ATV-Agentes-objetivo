@@ -77,7 +77,7 @@ class Graph:
 
     # -------------------------------
     # Carregar grafo de arquivo JSON
-    # Esse trecho é opcional, será utilizado apenas se usarmos arquivos json
+    
     # -------------------------------
 
     @classmethod
