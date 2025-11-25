@@ -1,0 +1,26 @@
+{
+  "nodes": {
+    "CasaDaMamae": [0, 0],
+    "ValeSeguro": [1, 1],
+    "ColinaBranda": [2, 2],
+    "PenhascoDoGavioes": [3, 3],
+    "BosqueDoGuapardo": [3, 1],
+    "CampoDoBode": [4, 2],
+    "PlanicieH": [5, 2],
+    "LagoLosPatos": [6, 2],
+    "MontanhaAlta": [4, 4],
+    "RetornoParaCasa": [7, 2]
+  },
+  "edges": [
+    ["CasaDaMamae", "ValeSeguro", 1],
+    ["ValeSeguro", "ColinaBranda", 1],
+    ["ColinaBranda", "PenhascoDoGavioes", 10],
+    ["ColinaBranda", "CampoDoBode", 5],
+    ["CampoDoBode", "PlanicieH", 2],
+    ["PlanicieH", "LagoLosPatos", 1],
+    ["PenhascoDoGavioes", "MontanhaAlta", 10],
+    ["MontanhaAlta", "LagoLosPatos", 1],
+    ["LagoLosPatos", "RetornoParaCasa", 1],
+    ["BosqueDoGuapardo", "ColinaBranda", 10]
+  ]
+}
