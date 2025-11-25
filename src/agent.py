@@ -1,5 +1,5 @@
 import networkx as nx
-import algorithms_search as a
+from algorithms_search import aStar
 from graphModel import Graph
 
 
@@ -17,18 +17,8 @@ class Agent:
     def plan(self):
         """Função para o planejamento de tragetória para ação"""
         try:
-            #self.path = a.aStar(self.graph, self.actual, self.goal); #função separada de A* usando networkx
-            # 1. Converter para networkx
-            G = self.graph.to_networkx()
-
-            # 2. Criar heurística adaptada
-            heuristic = lambda u, v: Graph.heuristic(
-                self.graph.positions[u], 
-                self.graph.positions[v]
-            )
-
-            # 3. Executar A*
-            self.path = nx.astar_path(G, self.actual, self.goal, heuristic=heuristic, weight='weight')
+            #função A* usando networkx
+            self.path = aStar(self.graph, self.actual, self.goal); 
             print(f"Plano traçado: {self.path}");
         except Exception as e:
             print(f"Nenhum caminho encontrado. Erro: {e}");

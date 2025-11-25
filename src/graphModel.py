@@ -51,20 +51,6 @@ class Graph:
         return self.adjacency[node1][node2]
 
     # -------------------------------
-    # Heurística
-    # -------------------------------
-
-    @staticmethod
-    def heuristic(pos1, pos2):
-        """
-        Heurística padrão: distância euclidiana entre dois pontos.
-        Usada pelo algoritmo A*.
-        """
-        (x1, y1) = pos1
-        (x2, y2) = pos2
-        return math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
-
-    # -------------------------------
     # Carregar grafo de arquivo JSON
     # Esse trecho é opcional, será utilizado apenas se usarmos arquivos json
     # -------------------------------

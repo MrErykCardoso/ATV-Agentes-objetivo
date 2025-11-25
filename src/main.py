@@ -82,7 +82,7 @@ def main():
     """Esecuta as funções do menu de intereação com o usuário."""
     #1) Escolher grafo:
     graphJson = graphChoice();
-    
+    0
     #2) Criar o grafo:
     graph = Graph.from_json(graphJson);
     
