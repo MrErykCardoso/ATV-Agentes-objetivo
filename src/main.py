@@ -3,105 +3,101 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from agent import Agent
 from graphModel import Graph
+from decorations import *
 
-CURRENT_DIR = os.path.dirname(__file__);
-ROOT_DIR = os.path.dirname(CURRENT_DIR);
-DATA_PATH = os.path.join(ROOT_DIR, 'data');
+CURRENT_DIR = os.path.dirname(__file__)
+ROOT_DIR = os.path.dirname(CURRENT_DIR)
+DATA_PATH = os.path.join(ROOT_DIR, 'data')
 
 def jsonList():
-    """Cria lista de grafos contidos na pasta data na raiz do projeto."""
-    arquives = os.listdir(DATA_PATH);
-    jsons = [file for file in arquives if file.endswith(".json")];
-    return jsons;
-    
+    return [f for f in os.listdir(DATA_PATH) if f.endswith(".json")]
+
 def graphChoice():
-    """Auxilia na seleção do grafo pelo usuário."""
-    jsons = jsonList();
-    
-    print("\n\n----- Escolha qual grafo deseja esplorar: ----- ");
-    for i, nome in enumerate(jsons):
-        print(f"({i}): {nome};");
-    choice = int(input("\nDigite o índice do grafo (0, 1, 2, ...): "));
-    
-    return os.path.join(DATA_PATH, jsons[choice]);
-    
+    jsons = jsonList()
+    titulo("Escolha um grafo")
+    listar_opcoes("Grafos disponíveis:", jsons)
+    idx = int(prompt("Digite o índice do grafo"))
+    return os.path.join(DATA_PATH, jsons[idx])
+
 def nodeChoice(grafo):
-    """Auxilia na seleção dos nós ded início e objetivo pelo usuário."""
-    nodes = list(grafo.adjacency.keys());
+    nodes = list(grafo.adjacency.keys())
+    titulo("Selecione os nós")
     
-    print("\n\n----- Escolha dentre os nós abaixo: -----");
-    i = 0;
-    for node in nodes:
-        print(f"({i}): {node}");0
-        i = i + 1;
-    actual = nodes[int(input("\nEscolha o índice do nó de início (0, 1, 2, ...): "))];
-    goal = nodes[int(input("\nEscolha o índice do nó de objetivo(0, 1, 2, ...): "))];
+    listar_opcoes("Nós disponíveis:", nodes)
     
-    return actual, goal;
-    
+    actual = nodes[int(prompt("Escolha o nó de início"))]
+    goal = nodes[int(prompt("Escolha o nó objetivo"))]
+    return actual, goal
+
 def plotGraph(graph, path):
-    """Usa o nx.Graph() e o matplotlib para criar a plotagem do grafo selecionado."""
     G = nx.Graph()
-    
-    # 1. Adicionar nós com posição correta
+
     for node, pos in graph.positions.items():
         G.add_node(node, pos=pos)
-    
-    # 2. Adicionar arestas
+
     for node, neighbors in graph.adjacency.items():
         for neighbor, cost in neighbors.items():
             G.add_edge(node, neighbor, weight=cost)
-    
-    # 3. Pegar as posições
-    pos = nx.get_node_attributes(G, "pos")
 
-    # 4. Se não houver posições, usar spring_layout
+    pos = nx.get_node_attributes(G, "pos")
     if not pos:
         pos = nx.spring_layout(G)
 
-    # 5. Desenhar grafo
-    nx.draw(
-        G, pos, with_labels=True,
-        node_size=800, node_color="lightblue",
-        font_size=12
-    )
-
-    # 6. Desenhar caminho em vermelho
+    nx.draw(G, pos, with_labels=True, node_size=800, node_color="lightblue", font_size=12)
+    
     if path and len(path) > 1:
-        caminho_arestas = list(zip(path, path[1:]))
-        nx.draw_networkx_edges(
-            G, pos,
-            edgelist=caminho_arestas,
-            width=3,
-            edge_color="red"
-        )
+        edges = list(zip(path, path[1:]))
+        nx.draw_networkx_edges(G, pos, edgelist=edges, width=3, edge_color="red")
 
+    loading()
+    okPrint("Dados carregados para o MATPLOTLIB;\nFeche a janela paralela para continuar")
     plt.show()
-    
+
 def main():
-    """Esecuta as funções do menu de intereação com o usuário."""
-    #1) Escolher grafo:
-    graphJson = graphChoice();
-    0
-    #2) Criar o grafo:
-    graph = Graph.from_json(graphJson);
-    
-    #3) Escolher nós de início e objetivo:
-    actual, goal = nodeChoice(graph);
-    
-    #4) Criar agente:
-    agent = Agent(graph, actual, goal);
-    
-    #5) Planejar caminho:
-    agent.plan();
-    
-    #6) Executar plano:
-    agent.act();
-    
-    #7) Plotar grafo e execução:
-    if agent.path:
-        plotGraph(graph, agent.path);
+    opt = 1
+    while(opt == 1):
+        clear()
+        loading()
+        titulo("Sistema de Navegação com A*")
+        graphJson = graphChoice()
+        loading("Carregando grafo")
+        graph = Graph.from_json(graphJson)
+        
+        clear()
+        actual, goal = nodeChoice(graph)
+        loading("Configurando agente")
+
+        clear()
+        agent = Agent(graph, actual, goal)
+        titulo("Planejamento da Rota")
+        agent.plan()
+        titulo("Execução da Rota")
+        agent.act()
+
+        if agent.path:
+            titulo("Visualização do Caminho")
+            plotGraph(graph, agent.path)
+        
+        cho = 2
+        while(cho != 0 or cho != 1):
+            try:
+                titulo("")
+                cho = int(prompt("\n\nGostaria de tentar novamente (1 - sim; 0 - não) ? "))
+                loading()
+                
+                clear()
+                if(cho == 1):
+                    opt = 1
+                    break
+                elif(cho == 0):
+                    opt = 0
+                    break
+                else:
+                    erroPrint("\n\nInserção inválida.\nPor favor insira uma das opções indicadas.")
+            except Exception as e:
+                clear()
+                erroPrint(f"\n\nInserção inválida.\nErro: {e};\nPor favor insira uma das opções indicadas.")
+                
 
 if __name__ == "__main__":
-    main();
-        
+    main()
