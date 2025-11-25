@@ -1,3 +1,8 @@
+
+# **Agentes Baseados em Objetivo (A*)**
+
+### *Sistema de Navegação Inteligente usando Grafos, JSON e A**
+
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
@@ -5,9 +10,71 @@
 ![A*](https://img.shields.io/badge/Algorithm-A*%20Search-red.svg?style=for-the-badge)
 
 
-# **Agentes Baseados em Objetivo (A*)**
+### Fluxograma do Funcionamento
+~~~
+───────────────────────────────────────────────────────────────────────────────
+                         ██████╗  ██╗   ██╗ ███╗   ███╗
+                         ██╔══██╗ ██║   ██║ ████╗ ████║
+                         ██████╔╝ ██║   ██║ ██╔████╔██║
+                         ██╔═══╝  ██║   ██║ ██║╚██╔╝██║
+                         ██║      ╚██████╔╝ ██║ ╚═╝ ██║
+                         ╚═╝       ╚═════╝  ╚═╝     ╚═╝
+──────────────────────────  INÍCIO DO PROGRAMA  ───────────────────────────────
 
-### *Sistema de Navegação Inteligente usando Grafos, JSON e A**
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                           EXIBIR MENU DE GRAFOS                            ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                         USUÁRIO SELECIONA O JSON                           ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║       CARREGAR GRAFO → Graph.from_json(filepath)                           ║
+║       • Carrega nós                                                        ║
+║       • Carrega posições                                                   ║
+║       • Carrega arestas                                                    ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║          LISTAR NÓS → Usuário escolhe início e objetivo                    ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║            CRIAR AGENTE → Agent(graph, actual, goal)                       ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                       PLANEJAMENTO (A*) → plan()                            ║
+║                  path = aStar(graph, actual, goal)                          ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║                   EXECUÇÃO DO PLANO → act()                                 ║
+║             Caminho percorrido passo a passo pelo agente                    ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+╔═════════════════════════════════════════════════════════════════════════════╗
+║   PLOTAGEM DO GRAFO → plotGraph()                                           ║
+║   • Desenha nós                                                             ║
+║   • Desenha arestas                                                         ║
+║   • Destaca o caminho encontrado em vermelho                                ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+                                    │
+                                    ▼
+───────────────────────────────  FIM DA EXECUÇÃO  ─────────────────────────────
+
+~~~
+
 
 
 ## **Descrição do Projeto**
@@ -27,8 +94,8 @@ Tudo isso utilizando:
 * **NetworkX**
 * **Matplotlib**
 
+📂 **Estrutura do Projeto**
 ~~~
-  📂 **Estrutura do Projeto
   ATV-Agentes-Objetivo/
   │
   ├── data/
@@ -46,7 +113,7 @@ Tudo isso utilizando:
   │   └── graphModel.py
   │
   ├── README.md
-  └── requirements.txt**
+  └── requirements.txt
 ~~~
 
 ## **Instalação**
