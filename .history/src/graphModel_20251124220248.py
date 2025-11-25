@@ -173,7 +173,7 @@ def create_graph_complex():
 # Exemplo de uso simples (para testes)
 # ---------------------------------------
 if __name__ == "__main__":
-    graph = create_graph_simple()
+    graph = create_graph_complex()
 
     print("Nós:", graph.adjacency)
     print("Posições:", graph.positions)
