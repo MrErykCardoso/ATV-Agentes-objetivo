@@ -1,3 +1,10 @@
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+![IA](https://img.shields.io/badge/AI-Agent%20Based%20Modeling-orange.svg?style=for-the-badge)
+![A*](https://img.shields.io/badge/Algorithm-A*%20Search-red.svg?style=for-the-badge)
+
+
 # **Agentes Baseados em Objetivo (A*)**
 
 ### *Sistema de Navegação Inteligente usando Grafos, JSON e A**
@@ -12,7 +19,7 @@ Este projeto implementa um **agente baseado em objetivo** capaz de:
 * selecionar o nó inicial e o objetivo
 * planejar o caminho usando **A***
 * executar o plano movendo-se passo a passo
-* exibir graficamente o grafo e o caminho percorrido
+* exibir graficamente o grafo 
 
 Tudo isso utilizando:
 
@@ -25,9 +32,9 @@ Tudo isso utilizando:
   ATV-Agentes-Objetivo/
   │
   ├── data/
-  │   ├── mapa_simples.json
-  │   ├── mapa_medio.json
-  │   └── mapa_complexo.json
+  │   ├── mapaComplexo.json
+  │   ├── mapaMedio.json
+  │   └── patinhos.json
   │
   ├── docs/
   │   └── fluxograma.png
@@ -69,13 +76,13 @@ O sistema lista automaticamente os grafos disponíveis dentro da pasta `/data`.
 Exemplo:
 ~~~
 ----- Escolha qual grafo deseja explorar: -----
-(0): mapa_simples.json
-(1): mapa_medio.json
-(2): mapa_complexo.json
+(0): patinhos.json
+(1): mapaMedio.json
+(2): mapaComplexo.json
 ~~~
 Você escolhe pelo índice, como:
 ~~~
-Digite o índice do grafo: 1
+Digite o índice do grafo (0, 1, 2, ...): 0
 ~~~
 
 ## **2. Escolha do nó inicial e objetivo**
@@ -83,26 +90,36 @@ Digite o índice do grafo: 1
 Após carregar o grafo, o sistema lista seus nós:
 ~~~
 ----- Escolha dentre os nós abaixo: -----
-(0): A
-(1): B
-(2): C
-...
-Escolha o índice do nó de início: 0
-Escolha o índice do nó de objetivo: 3
+(0): CasaDaMamae
+(1): ValeSeguro
+(2): ColinaBranda
+(3): PenhascoDoGavioes
+(4): BosqueDoGuapardo
+(5): CampoDoBode
+(6): PlanicieH
+(7): LagoLosPatos
+(8): MontanhaAlta
+(9): RetornoParaCasa
+
 ~~~
 
 ## **3. Agente – Planejamento e Execução**
 
 O agente utiliza **A*** (A-Star) para buscar a rota mais eficiente entre os nós:
-
-Plano traçado: ['A', 'B', 'C', 'D']
+~~~
+Plano traçado: ['CasaDaMamae', 'ValeSeguro', 'ColinaBranda', 'CampoDoBode', 'PlanicieH', 'LagoLosPatos', 'RetornoParaCasa']
+~~~
 
 Depois executa o plano:
 ~~~
-Caminho planejado: ['A', 'B', 'C', 'D']
-Posição atualizada para: B
-Posição atualizada para: C
-Posição atualizada para: D
+Caminho planejado: ['CasaDaMamae', 'ValeSeguro', 'ColinaBranda', 'CampoDoBode', 'PlanicieH', 'LagoLosPatos', 'RetornoParaCasa']
+Posição atualizada para: ValeSeguro
+Posição atualizada para: ColinaBranda
+Posição atualizada para: CampoDoBode
+Posição atualizada para: PlanicieH
+Posição atualizada para: LagoLosPatos
+Posição atualizada para: RetornoParaCasa
+
 Objetivo atingido!
 ~~~
 
