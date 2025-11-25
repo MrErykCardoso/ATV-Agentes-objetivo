@@ -20,6 +20,7 @@ Tudo isso utilizando:
 * **NetworkX**
 * **Matplotlib**
 
+~~~
   📂 **Estrutura do Projeto
   ATV-Agentes-Objetivo/
   │
@@ -39,46 +40,48 @@ Tudo isso utilizando:
   │
   ├── README.md
   └── requirements.txt**
-
+~~~
 
 ## **Instalação**
 
 ### 1️⃣ Instalar dependências
 
-No terminal: pip install -r requirements.txt
-
+No terminal:
+~~~
+pip install -r requirements.txt
+~~~
 
 ## **Como Executar o Sistema**
 
 ### 1️⃣ Entre na pasta raiz do projeto:
-
+~~~
 cd ATV-Agentes-objetivo
-
+~~~
 Rode o arquivo principal:
-
+~~~
 python src/main.py
-
+~~~
 
 ## **1. Escolha do Grafo**
 
 O sistema lista automaticamente os grafos disponíveis dentro da pasta `/data`.
 
 Exemplo:
-
+~~~
 ----- Escolha qual grafo deseja explorar: -----
 (0): mapa_simples.json
 (1): mapa_medio.json
 (2): mapa_complexo.json
-
+~~~
 Você escolhe pelo índice, como:
-
+~~~
 Digite o índice do grafo: 1
-
+~~~
 
 ## **2. Escolha do nó inicial e objetivo**
 
 Após carregar o grafo, o sistema lista seus nós:
-
+~~~
 ----- Escolha dentre os nós abaixo: -----
 (0): A
 (1): B
@@ -86,7 +89,7 @@ Após carregar o grafo, o sistema lista seus nós:
 ...
 Escolha o índice do nó de início: 0
 Escolha o índice do nó de objetivo: 3
-
+~~~
 
 ## **3. Agente – Planejamento e Execução**
 
@@ -95,13 +98,13 @@ O agente utiliza **A*** (A-Star) para buscar a rota mais eficiente entre os nós
 Plano traçado: ['A', 'B', 'C', 'D']
 
 Depois executa o plano:
-
+~~~
 Caminho planejado: ['A', 'B', 'C', 'D']
 Posição atualizada para: B
 Posição atualizada para: C
 Posição atualizada para: D
 Objetivo atingido!
-
+~~~
 
 ## **4. Plotagem do Grafo**
 
