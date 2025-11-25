@@ -140,6 +140,7 @@ def create_graph_medium():
 
     g.add_edge("A", "B", 3)
     g.add_edge("B", "C", 2)
+    
     g.add_edge("C", "D", 3)
     g.add_edge("A", "E", 4)
     g.add_edge("E", "C", 2)

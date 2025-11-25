@@ -175,5 +175,6 @@ def create_graph_complex():
 if __name__ == "__main__":
     graph = Graph.from_json("data/mapa_simples.json")
 
+
     print("Nós:", graph.adjacency)
     print("Posições:", graph.positions)
