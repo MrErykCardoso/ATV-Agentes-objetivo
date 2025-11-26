@@ -114,6 +114,7 @@ Tudo isso utilizando:
   ├── src/
   │   ├── main.py
   │   ├── agent.py
+  │   ├── decorations.py
   │   ├── algorithms_search.py
   │   └── graphModel.py
   │
@@ -264,3 +265,20 @@ Foi implementado:
 * interação via menu
 
 É um exemplo completo e funcional de IA aplicada à navegação.
+
+### Limitações do Sistema
+
+O projeto cumpre todos os requisitos propostos, mas possui algumas limitações naturais da implementação:
+
+- Os grafos são estáticos e carregados via JSON.
+- O agente não replaneja a rota após o A* inicial.
+- A interação ocorre apenas pelo terminal.
+
+---
+
+### Próximos Passos
+
+- Implementar replanejamento dinâmico da rota.
+- Criar interface gráfica para melhorar a usabilidade.
+- Adicionar animação do percurso no grafo.
+
