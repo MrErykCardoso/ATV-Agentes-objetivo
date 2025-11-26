@@ -79,7 +79,7 @@
 
 A apresentação completa do trabalho pode ser assistida no link abaixo:
 
-👉 **YouTube:** https://youtu.be/SEU_LINK_AQUI
+👉 **YouTube:** https://www.youtube.com/watch?v=8bTg79S32u4
 
 
 ## **Descrição do Projeto**
