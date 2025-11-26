@@ -109,7 +109,7 @@ Tudo isso utilizando:
   │   └── patinhos.json
   │
   ├── docs/
-  │   └── fluxograma.png
+  │   └── descrição-da-atv.txt
   │
   ├── src/
   │   ├── main.py
