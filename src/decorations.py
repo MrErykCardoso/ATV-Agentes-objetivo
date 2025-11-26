@@ -27,11 +27,11 @@ def prompt(texto):
 
 def erroPrint(texto):
     """Usando para decora os inputs do programa."""
-    return print(Fore.RED + f"➤ {texto}: " + Fore.WHITE)
+    return print(Fore.RED + f"➤ {texto}." + Fore.WHITE)
 
 def okPrint(texto):
     """Usando para decora os inputs do programa."""
-    return print(Fore.LIGHTBLUE_EX + f"➤ {texto}: " + Fore.WHITE)
+    return print(Fore.LIGHTBLUE_EX + f"➤ {texto}." + Fore.WHITE)
 
 def listar_opcoes(msg, opcoes):
     """Imprime as opções decoradas na cor selecionada."""

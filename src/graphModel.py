@@ -86,6 +86,7 @@ class Graph:
         return g
     
     def to_networkx(self):
+        """Função de conversão do grafo tipo Graph para networkx"""
         G = nx.Graph()
 
         for node, pos in self.positions.items():
