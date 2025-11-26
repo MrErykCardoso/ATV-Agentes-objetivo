@@ -41,5 +41,5 @@ class Agent:
                     actual = doPath[0];
                     print(f"\nPosição atualizada para: {actual};");
 
-        okPrint(f"\n\nObjetivo atingido!\nPosição atual: {actual};\nPosição pretendida: {self.goal};");
+        okPrint(f"Objetivo atingido!\nPosição atual: {actual};\nPosição pretendida: {self.goal};");
         return;

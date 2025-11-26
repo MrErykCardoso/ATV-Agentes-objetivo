@@ -23,15 +23,15 @@ def titulo(texto):
 
 def prompt(texto):
     """Usando para decora os inputs do programa."""
-    return input(Fore.YELLOW + f"➤ {texto}: " + Fore.WHITE)
+    return input(Fore.YELLOW + f"\n➤ {texto}: " + Fore.WHITE)
 
 def erroPrint(texto):
     """Usando para decora os inputs do programa."""
-    return print(Fore.RED + f"➤ {texto}." + Fore.WHITE)
+    return print(Fore.RED + f"\n\n➤ {texto}." + Fore.WHITE)
 
 def okPrint(texto):
     """Usando para decora os inputs do programa."""
-    return print(Fore.LIGHTBLUE_EX + f"➤ {texto}." + Fore.WHITE)
+    return print(Fore.LIGHTGREEN_EX + f"\n\n➤ {texto}." + Fore.WHITE)
 
 def listar_opcoes(msg, opcoes):
     """Imprime as opções decoradas na cor selecionada."""

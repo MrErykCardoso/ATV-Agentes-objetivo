@@ -94,6 +94,8 @@ def main():
 
             #3) Criação do agente e chamada de funções de planejamento e execução de rota
             clear()
+            okPrint(f"Grafo selecionado: {graphJson}\nObjetivo: {goal};\nInício: {actual}")
+            
             agent = Agent(graph, actual, goal)
             titulo("Planejamento da Rota")
             agent.plan()
@@ -105,13 +107,13 @@ def main():
             riscos = ["CampoDoBode", "PlanicieH",]
             montanha = "MontanhaAlta"
             if graphJson.endswith("patinhos.json") and agent.goal in perigos:
-                erroPrint("\n\nOs patinhos viraram almoço de uma fera selvagem")
+                erroPrint("Os patinhos viraram almoço de uma fera selvagem")
             elif graphJson.endswith("patinhos.json") and agent.goal in riscos:
-                erroPrint("\n\nUm animal herbivoro acidentalmente pisoteou os patinhos.\nFoi o fim deles")
+                erroPrint("Um animal herbivoro acidentalmente pisoteou os patinhos.\nFoi o fim deles")
             elif graphJson.endswith("patinhos.json") and agent.goal in montanha:
-                erroPrint("\n\nOs patinhos acidentalmente cairam de uma altura enorme.\nInfelizmente eles ainda não sabiam voar")
+                erroPrint("Os patinhos acidentalmente cairam de uma altura enorme.\nInfelizmente eles ainda não sabiam voar")
             else: 
-                okPrint("\n\nOs patinhos foram passear e voltaram com sucesso apra casa.\nA mamãe está contente")
+                okPrint("Os patinhos foram passear e voltaram com sucesso apra casa.\nA mamãe está contente")
             
             #4) Caso seja possível gerar uma rota, plota o gráfico e a trajetória para visualisação em janela paralela.
             if agent.path:
@@ -128,7 +130,7 @@ def main():
         while(cho != 0 or cho != 1):
             try:
                 titulo("")
-                cho = int(prompt("\n\nGostaria de tentar novamente (1 - sim; 0 - não) ? "))
+                cho = int(prompt("Gostaria de tentar novamente (1 - sim; 0 - não) ? "))
                 loading()
                 
                 clear()
@@ -139,10 +141,10 @@ def main():
                     opt = 0
                     break
                 else:
-                    erroPrint("\n\nInserção inválida.\nPor favor insira uma das opções indicadas.")
+                    erroPrint("Inserção inválida.\nPor favor insira uma das opções indicadas.")
             except Exception as e:
                 clear()
-                erroPrint(f"\n\nInserção inválida.\nErro: {e};\nPor favor insira uma das opções indicadas.")
+                erroPrint(f"Inserção inválida.\nErro: {e};\nPor favor insira uma das opções indicadas.")
                 
 
 if __name__ == "__main__":

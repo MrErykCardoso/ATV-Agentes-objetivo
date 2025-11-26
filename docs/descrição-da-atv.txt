@@ -1,0 +1,25 @@
+Universidade Federal do Maranhão
+Nome da Tarefa:
+Atividade da Unidade I - Busca
+Professor: Alex Barradas Filho
+
+Descrição:
+Objetivo
+
+Modelar um problema de busca como grafo, implementar e demonstrar a solução usando A* no NetworkX. O resultado deve ser apresentado de forma clara e reprodutível.
+
+Código: repositório GitHub/GitLab ou arquivo compactado. Não esqueça de comentar o código.
+
+Não esqueça de fazer um arquivo README com as seguintes informações:
+
+Descrição do problema;
+Como rodar passo a passo.
+Vídeo (até 5 minutos) no YouTube que atenda aos seguintes itens:
+
+Problema e modelagem em grafo;
+Implementação do A*;
+Demonstração executando o código;
+As limitações e próximos passos.
+
+Período:
+Inicia em 06/11/2025 às 00h00 e finaliza em 25/11/2025 às 23h59
